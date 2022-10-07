@@ -1,5 +1,4 @@
 
-
 public class TankCapacity {
 
 	public static void main(String[] args) {
@@ -10,13 +9,15 @@ public class TankCapacity {
 		// Also include a mechanism in your program to stop the tank from over flowing.
 
 		int maxTankCapacity = 100;
-		// one bucket hold 10 liters of water
-		for (int litersOfWaterPoured = 10; litersOfWaterPoured <= 1000; litersOfWaterPoured += 10) {
-
-			System.out.println(litersOfWaterPoured + " liters of water is poured and can have "
-					+ (maxTankCapacity - litersOfWaterPoured) + " more liter of water.");
-			if (litersOfWaterPoured == maxTankCapacity) {
-				System.out.println("Water tank reached maximun capacity of water");
+		int initialLevelOfWater = 48;
+		for (int waterInsideTank = initialLevelOfWater; waterInsideTank <= (maxTankCapacity
+				- 3); waterInsideTank += 10) {
+			System.out.println("Water inside the tank is " + waterInsideTank + " liters and  can pour "
+					+ ((maxTankCapacity - 3) - waterInsideTank) + " more liters of water");
+			int tempWaterLevel = waterInsideTank + 10;
+			if (tempWaterLevel >= maxTankCapacity - 3) {
+				System.out.println("Cannot  add more water . Water tank can hold only " + (maxTankCapacity - 3)
+						+ " liters of water");
 				break;
 			}
 
