@@ -15,43 +15,56 @@ public class PhoneBillingCalculations {
 		// creating instance of PhoneBillingMethods class
 		PhoneBillingMethods phoneBillM = new PhoneBillingMethods();
 
-		// Taking input from the console for type of phone
-		System.out.println("Please enter the Brand that you want to choose from: Apple/ Samsung");
-		String typeOfPhone = sc.next();
+		String typeOfPhone = "";
+		for (int numOfAttempt = 1; numOfAttempt <= 3; numOfAttempt++) {
 
-		if (typeOfPhone.equals("Samsung") || typeOfPhone.equals("Apple")) {
-			// Invoking the phoneType method with reference variable
-			phoneBillM.phoneType(typeOfPhone);
-
-			// taking input for phone model
-			String modelOfPhone = sc.next();
-
-			// Invoking the phoneBrand method with reference variable and assigned in a
-			// variable
-			int phoneModelBill = phoneBillM.phoneBrand(modelOfPhone);
-
-			if (phoneModelBill > 0) {
-
-				// Taking input to select the plan
-				System.out.println("Please select the plan that you want to opt for: Rogers/ Telus/ Bell");
-				String phonePlan = sc.next();
-
-				// Invoking the phonePlanType method with reference variable assigned in a
-				// variable
-				int phonePlanBill = phoneBillM.phonePlanType(phonePlan);
-
-				// final bill for phone and plan added and assigned in local variable
-				int finalPhoneBill = phoneModelBill + phonePlanBill;
-
-				System.out.println("You have selected " + modelOfPhone + " with " + phonePlan + "plan");
-				System.out.println("Your phone tab will be : $" + phoneBillM.phoneBrand(modelOfPhone));
-				System.out.println("Your monthly plan will be : $" + phonePlanBill);
-				System.out.println("Your Monthly amount : $" + finalPhoneBill);
-			} else {
-				System.out.println("Please enter valid phone model");
+			System.out.println("Please enter the Brand that you want to choose from: Apple/ Samsung");
+			typeOfPhone = sc.next();
+			if ((typeOfPhone.equals("Samsung")) || (typeOfPhone.equals("Apple"))) {
+				phoneBillM.getPhoneBrand(typeOfPhone);
+				break;
+			} else if (numOfAttempt == 3) {
+				System.out.println("Invalid Phone Brand");
+				System.exit(numOfAttempt);
 			}
-		} else {
-			System.out.println("Invalid phonetype choose either Apple or Samsung");
 		}
+
+		int priceOfPhoneModel = 0;
+		String modelOfPhone = "";
+		for (int numOfAttempt = 1; numOfAttempt <= 3; numOfAttempt++) {
+			modelOfPhone = sc.next();
+			priceOfPhoneModel = phoneBillM.getPhonePriceByModel(modelOfPhone);
+
+			if (priceOfPhoneModel > 0) {
+				break;
+			} else if (numOfAttempt == 3) {
+				System.out.println("Invalid Phone Model");
+				System.exit(numOfAttempt);
+			} else {
+				System.out.println("Enter valid phone model from the above list");
+			}
+
+		}
+		int priceOfPhonePlan = 0;
+		String phonePlan = "";
+		for (int numOfAttempt = 1; numOfAttempt <= 3; numOfAttempt++) {
+			System.out.println("Please select the plan that you want to opt for: Rogers/ Telus/ Bell");
+			phonePlan = sc.next();
+			priceOfPhonePlan = phoneBillM.getPhonePriceByPlan(phonePlan);
+			if (priceOfPhonePlan > 0) {
+				break;
+			} else if (numOfAttempt == 3) {
+				System.out.println("Enter valid phone plan");
+				System.exit(numOfAttempt);
+			}
+		}
+		// final bill for phone and plan added and assigned in local variable
+		int finalPhoneBill = priceOfPhoneModel + priceOfPhonePlan;
+
+		System.out.println("You have selected " + modelOfPhone + " with " + phonePlan + " plan");
+		System.out.println("Your phone tab will be : $" + priceOfPhoneModel);
+		System.out.println("Your monthly plan will be : $" + priceOfPhonePlan);
+		System.out.println("Your Monthly amount : $" + finalPhoneBill);
 	}
+
 }

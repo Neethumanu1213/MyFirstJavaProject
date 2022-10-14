@@ -3,7 +3,7 @@ package assignmentWeek6;
 public class PhoneBillingMethods {
 
 	// Method to select the type of phone
-	void phoneType(String typeOfPhone) {
+	void getPhoneBrand(String typeOfPhone) {
 
 		if (typeOfPhone.equals("Samsung")) {
 			System.out.println("Please enter the model of phone you want to buy from below");
@@ -24,47 +24,47 @@ public class PhoneBillingMethods {
 	}
 
 	// Method to get the price of each model
-	int phoneBrand(String modelOfPhone) {
+	int getPhonePriceByModel(String modelOfPhone) {
 
-		int billPerMonth = 0;
+		int calculatedTab = 0;
 		switch (modelOfPhone) {
 		case "S22":
-			billPerMonth = 25;
+			calculatedTab = 25;
 			break;
 		case "S22+":
-			billPerMonth = 35;
+			calculatedTab = 35;
 			break;
 		case "S22_Ultra":
-			billPerMonth = 55;
+			calculatedTab = 55;
 			break;
 		case "S22FE":
-			billPerMonth = 20;
+			calculatedTab = 20;
 			break;
 		case "IPhone_14":
-			billPerMonth = 30;
+			calculatedTab = 30;
 
 			break;
 		case "IPhone_14_pro":
-			billPerMonth = 40;
+			calculatedTab = 40;
 			break;
 		case "IPhone_14_pro_max":
-			billPerMonth = 65;
+			calculatedTab = 65;
 			break;
 		case "IPhone_14_mini":
-			billPerMonth = 25;
+			calculatedTab = 25;
 			break;
 		default:
-			System.out.println("Invalid Model");
+			calculatedTab = 0;
 			break;
 		}
-		return billPerMonth;
+		return calculatedTab;
 	}
 
 	// Method to select the phone plans
-	int phonePlanType(String phonePlan) {
+	int getPhonePriceByPlan(String phonePlan) {
 		int planPrice = 0;
 
-		if (phonePlan.equals("Roger")) {
+		if (phonePlan.equals("Rogers")) {
 			planPrice = 70;
 		} else if (phonePlan.equals("Bell")) {
 			planPrice = 80;
@@ -72,7 +72,7 @@ public class PhoneBillingMethods {
 			planPrice = 75;
 		} else {
 			planPrice = 0;
-			System.out.println("Choose one from Roger,Bell or Telus");
+
 		}
 
 		return planPrice;
