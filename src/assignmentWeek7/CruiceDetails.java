@@ -3,44 +3,42 @@ package assignmentWeek7;
 public class CruiceDetails {
 	String cruiseName;
 	int daysOfTrip;
-	boolean isMealsOrdered;
+	double adultPrice;
+	double childPrice;
+	double adultMealPrice = 20.99;
+	double childMealPrice = 4.99;
 
-	public CruiceDetails(String nameOfCruise, int noOfDays) {
+	public CruiceDetails(String nameOfCruise, int noOfDays, double priceForAdult, double priceForChild) {
 		cruiseName = nameOfCruise;
 		daysOfTrip = noOfDays;
+		adultPrice = priceForAdult;
+		childPrice = priceForChild;
 	}
 
-	void getCruiceDetais(String enteredNameOfcruice) {
-		switch (enteredNameOfcruice) {
-		case "Scenic Cruise":
-			System.out.println(
-					"The cruise that you have selected is Scenic Cruise which is " + daysOfTrip + "days of trip");
-			System.out.println("Price for Adults	(greater than 12)	: 49.99 per day");
-			System.out.println("Price for kids above 5			: 12.99 per day");
-			break;
-		case "Sunset Cruise":
-			System.out.println(
-					"The cruise that you have selected is Sunset Cruise which is " + daysOfTrip + "days of trip");
-			System.out.println("Price for Adults	(greater than 12)	: 53.99 per day");
-			System.out.println("Price for kids above 5			: 15.99 per day");
-			break;
-		case "Discovery Cruise":
-			System.out.println(
-					"The cruise that you have selected is Discovery Cruise which is " + daysOfTrip + "days of trip");
-			System.out.println("Price for Adults	(greater than 12)	: 39.99 per day");
-			System.out.println("Price for kids above 5			: 9.99 per day");
-			break;
-		case "Mystery Cruise":
-			System.out.println(
-					"The cruise that you have selected is Mystery Cruise which is " + daysOfTrip + "days of trip");
-			System.out.println("Price for Adults	(greater than 12)	: 45.99 per day");
-			System.out.println("Price for kids above 5			: 12.99 per day");
-			break;
-			
-        default:
-			System.out.println("Invalid Input");
-			break;
+	double getAdultPriceForCruice(int numofAdult) {
+		double cruicePriceForAdult = (adultPrice * numofAdult * daysOfTrip);
+		return cruicePriceForAdult;
+	}
+
+	double getchildPriceForCruice(int numOfChildrenAbove5) {
+		double cruisePriceForChild = 0;
+		cruisePriceForChild = childPrice * numOfChildrenAbove5 * daysOfTrip;
+		return cruisePriceForChild;
+	}
+
+	double getPriceForAdultMeal(String mealBooking, int numofAdult) {
+		double mealPriceForAdult = 0;
+		if (mealBooking.equals("Y")) {
+			mealPriceForAdult = adultMealPrice * numofAdult * daysOfTrip;
 		}
+		return mealPriceForAdult;
 	}
 
+	double getPriceForChildMeal(String mealBooking, int numofChildrenAbove5) {
+		double mealPriceForChild = 0;
+		if (mealBooking.equals("Y")) {
+			mealPriceForChild = childMealPrice * numofChildrenAbove5 * daysOfTrip;
+		}
+		return mealPriceForChild;
+	}
 }
