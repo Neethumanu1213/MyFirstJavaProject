@@ -26,7 +26,7 @@ public class CruiceCompanyMain {
 		double totalAdultPrice = 0;
 		int numOfChildrenAbove5 = 0;
 		double totalChildPrice = 0;
-		CruiceDetails selectedCruice = null;
+		CruiceDetails selectedCruice = new CruiceDetails();
 
 		// while loop to iterate 3 times for user to change the options
 		while (countForInvalidEntry < cruiceDetails.length) {
@@ -77,7 +77,7 @@ public class CruiceCompanyMain {
 								for (int i = 1; i <= numOfChildren; i++) {
 									System.out.println("Enter the age of child " + i);
 									int ageOfChild = sc.nextInt();
-									if (ageOfChild > 5) {
+									if ((ageOfChild > 5) &&(ageOfChild<12)){
 										numOfChildrenAbove5++;
 									}
 									totalChildPrice = selectedCruice.getchildPriceForCruice(numOfChildrenAbove5);

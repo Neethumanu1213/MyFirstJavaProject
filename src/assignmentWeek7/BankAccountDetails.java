@@ -27,8 +27,8 @@ public class BankAccountDetails {
 	}
 
 	double getPriceAfterDeposit(double amountToDeposit) {
-		double currentBalanceAfterDeposit = bankBalance + amountToDeposit;
-		return currentBalanceAfterDeposit;
+		double currentBalanceAfterDeposit = bankBalance + amountToDeposit; 
+		return currentBalanceAfterDeposit; 
 
 	}
 

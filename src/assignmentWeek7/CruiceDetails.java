@@ -14,6 +14,9 @@ public class CruiceDetails {
 		adultPrice = priceForAdult;
 		childPrice = priceForChild;
 	}
+	public CruiceDetails() {
+		
+	}
 
 	double getAdultPriceForCruice(int numofAdult) {
 		double cruicePriceForAdult = (adultPrice * numofAdult * daysOfTrip);
