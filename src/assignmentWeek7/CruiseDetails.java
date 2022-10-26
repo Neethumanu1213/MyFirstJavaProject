@@ -1,6 +1,6 @@
 package assignmentWeek7;
 
-public class CruiceDetails {
+public class CruiseDetails {
 	String cruiseName;
 	int daysOfTrip;
 	double adultPrice;
@@ -8,15 +8,14 @@ public class CruiceDetails {
 	double adultMealPrice = 20.99;
 	double childMealPrice = 4.99;
 
-	public CruiceDetails(String nameOfCruise, int noOfDays, double priceForAdult, double priceForChild) {
+	public CruiseDetails(String nameOfCruise, int noOfDays, double priceForAdult, double priceForChild) {
 		cruiseName = nameOfCruise;
 		daysOfTrip = noOfDays;
 		adultPrice = priceForAdult;
 		childPrice = priceForChild;
 	}
-	public CruiceDetails() {
-		
-	}
+
+	
 
 	double getAdultPriceForCruice(int numofAdult) {
 		double cruicePriceForAdult = (adultPrice * numofAdult * daysOfTrip);
@@ -31,15 +30,17 @@ public class CruiceDetails {
 
 	double getPriceForAdultMeal(String mealBooking, int numofAdult) {
 		double mealPriceForAdult = 0;
-		if (mealBooking.equals("Y")) {
+		if (mealBooking.equalsIgnoreCase("Y")) {
 			mealPriceForAdult = adultMealPrice * numofAdult * daysOfTrip;
+		}else {
+			System.out.println("Meal is not selected");
 		}
 		return mealPriceForAdult;
 	}
 
 	double getPriceForChildMeal(String mealBooking, int numofChildrenAbove5) {
 		double mealPriceForChild = 0;
-		if (mealBooking.equals("Y")) {
+		if (mealBooking.equalsIgnoreCase("Y")) {
 			mealPriceForChild = childMealPrice * numofChildrenAbove5 * daysOfTrip;
 		}
 		return mealPriceForChild;

@@ -2,21 +2,58 @@ package assignmentWeek7;
 
 import java.util.Scanner;
 
-public class CruiceCompanyMain {
+public class CruiseCompanyMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
 
+		System.out.println("Welcome to Cruise Booking.");
+		System.out.println("Please sign up to book a cruise.");
+		System.out.println("Enter your email address.");
+		String userName = sc.nextLine();
+		System.out.println("Enter the password that you want to use");
+		String existingPassword = sc.nextLine();
+		System.out.println("Enter your Full Name");
+		String fullName = sc.nextLine();
+		System.out.println("Enter your phone number");
+		int phoneNumber = sc.nextInt();
+
+		//Creating instance of UserDetails class and invoking the constuctor with parameters
+		UserDetails userDetails = new UserDetails(userName, existingPassword, fullName, phoneNumber);
+
+		// check whether they can login using the username and password
+		int validCredTry = 0;
+
+		while (validCredTry < 3) {
+			System.out.println("Enter the email ID to login");
+			String loginUsername = sc.next();
+			System.out.println("Enter password to login");
+			String loginPassword = sc.next();
+			boolean validateCredential = userDetails.validateCredentials(loginUsername, loginPassword);
+
+			if (!validateCredential) {
+				System.out.println("enter valid credentials");
+			} else {
+				System.out.println("You have successfully logged in");
+				break;
+			}
+			validCredTry++;
+		}
+		if (validCredTry > 2) {
+			System.out.println("You have reached your max attempt");
+			System.exit(validCredTry);
+		}
+
 		// creating instance of class and invoking the constructor
-		CruiceDetails scenicCruise = new CruiceDetails("Scenic Cruise", 3, 43.99, 12.99);
-		CruiceDetails sunsetCruise = new CruiceDetails("Sunset Cruise", 1, 52.99, 13.99);
-		CruiceDetails discoveryCruise = new CruiceDetails("Discovery Cruise", 4, 39.99, 9.99);
-		CruiceDetails mysteryCruise = new CruiceDetails("Mystery Cruise", 2, 45.99, 12.99);
+		CruiseDetails scenicCruise = new CruiseDetails("Scenic Cruise", 3, 43.99, 12.99);
+		CruiseDetails sunsetCruise = new CruiseDetails("Sunset Cruise", 1, 52.99, 13.99);
+		CruiseDetails discoveryCruise = new CruiseDetails("Discovery Cruise", 4, 39.99, 9.99);
+		CruiseDetails mysteryCruise = new CruiseDetails("Mystery Cruise", 2, 45.99, 12.99);
 
 		// Array of objects
-		CruiceDetails[] cruiceDetails = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
+		CruiseDetails[] cruiceDetails = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
 
 		// initializing the variable
 		int countForInvalidEntry = 0;
@@ -26,7 +63,7 @@ public class CruiceCompanyMain {
 		double totalAdultPrice = 0;
 		int numOfChildrenAbove5 = 0;
 		double totalChildPrice = 0;
-		CruiceDetails selectedCruice = new CruiceDetails();
+		CruiseDetails selectedCruice = null;
 
 		// while loop to iterate 3 times for user to change the options
 		while (countForInvalidEntry < cruiceDetails.length) {
@@ -34,7 +71,9 @@ public class CruiceCompanyMain {
 					"We offer 4 different packages as displayed below. Please enter the cruise that you want to select."
 							+ "\n" + "Scenic Cruise" + "\n" + "Sunset Cruise" + "\n" + "Discovery Cruise" + "\n"
 							+ "Mystery Cruise");
+			//sc.nextLine();
 			String enteredNameOfcruise = sc.nextLine();
+System.out.println("Entered cruise name is  "+enteredNameOfcruise);
 
 			// iterating over object array to find the selected cruise
 			for (int i = 0; i < cruiceDetails.length; i++) {
@@ -56,14 +95,13 @@ public class CruiceCompanyMain {
 			if (flag != 0) {
 				System.out.println(
 						"Please press Y if you want to continue with the selection or press any other alphabet to select another");
-				String cruiseSelection = sc.nextLine();
+				String cruiseSelection = sc.next();
 
-				if (cruiseSelection.equals("Y")) {
+				if (cruiseSelection.equalsIgnoreCase("Y")) {
 					int adultAgeTry = 0;
 
 					// do while to iterate for validating the condition adult>0 .
 					do {
-
 						System.out.println("Enter the number of adults");
 						numOfAdult = sc.nextInt();
 
@@ -77,7 +115,7 @@ public class CruiceCompanyMain {
 								for (int i = 1; i <= numOfChildren; i++) {
 									System.out.println("Enter the age of child " + i);
 									int ageOfChild = sc.nextInt();
-									if ((ageOfChild > 5) &&(ageOfChild<12)){
+									if ((ageOfChild > 5) && (ageOfChild < 12)) {
 										numOfChildrenAbove5++;
 									}
 									totalChildPrice = selectedCruice.getchildPriceForCruice(numOfChildrenAbove5);
@@ -94,14 +132,11 @@ public class CruiceCompanyMain {
 					} while (adultAgeTry < 3);
 
 					break;
-
 				}
 			} else {
 				System.out.println("Enter valid cruise name");
-
 			}
 			countForInvalidEntry++;
-
 		}
 
 		// Condition for buffet option
@@ -134,6 +169,60 @@ public class CruiceCompanyMain {
 			System.out.println("You have enterd wrong cruise name");
 		}
 
-	}
+		// option to change thier credentials
+		System.out.println(
+				"Do you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
+		String changePersonalDetails = sc.next();
+		if (changePersonalDetails.equalsIgnoreCase("Y")) {
 
+			System.out.println("Please enter the information you want to change.\n" + "1. Password\n"
+					+ "2. Phone number\n" + "3. Email");
+			int optionSelected = sc.nextInt();
+
+			int passwordTry = 0;
+			while (passwordTry < 3) {
+
+				System.out.println("Enter the existing  password");
+				existingPassword = sc.next();
+				if (userDetails.validatePassword(existingPassword)) {
+
+					switch (optionSelected) {
+					case 1:
+						System.out.println("Enter the new password");
+						String newPassword = sc.next();
+						userDetails.setPassword(newPassword);
+						break;
+
+					case 2:
+						System.out.println("Enter the new number");
+						int newPhoneNumber = sc.nextInt();
+						userDetails.setPhoneNumber(newPhoneNumber);
+						break;
+
+					case 3:
+						System.out.println("Enter the new username");
+						String newUserName = sc.next();
+						userDetails.setUserName(newUserName);
+						break;
+
+					default:
+						System.out.println("Enter valid options");
+						break;
+					}
+					break;
+
+				} else if (passwordTry == 2) {
+					System.out.println("You have reached max limit");
+
+					break;
+				} else {
+					System.out.println("Password is incorrect");
+
+				}
+				passwordTry++;
+			}
+
+		}
+		System.out.println("Thank you for using the service!");
+	}
 }
