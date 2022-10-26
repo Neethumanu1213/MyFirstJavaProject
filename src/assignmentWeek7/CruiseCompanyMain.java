@@ -6,7 +6,6 @@ public class CruiseCompanyMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Welcome to Cruise Booking.");
@@ -20,30 +19,34 @@ public class CruiseCompanyMain {
 		System.out.println("Enter your phone number");
 		int phoneNumber = sc.nextInt();
 
-		//Creating instance of UserDetails class and invoking the constuctor with parameters
+		// Creating instance of UserDetails class and invoking the constuctor with
+		// parameters
 		UserDetails userDetails = new UserDetails(userName, existingPassword, fullName, phoneNumber);
 
-		// check whether they can login using the username and password
-		int validCredTry = 0;
+		// checking whether user can login using the username and password
+		int invalidCredentlTry = 0;
 
-		while (validCredTry < 3) {
+		while (invalidCredentlTry < 3) {
 			System.out.println("Enter the email ID to login");
 			String loginUsername = sc.next();
 			System.out.println("Enter password to login");
 			String loginPassword = sc.next();
-			boolean validateCredential = userDetails.validateCredentials(loginUsername, loginPassword);
+			// Consumes new line leftover
+			sc.nextLine();
 
+			// Validating the credentials
+			boolean validateCredential = userDetails.validateCredentials(loginUsername, loginPassword);
 			if (!validateCredential) {
 				System.out.println("enter valid credentials");
 			} else {
 				System.out.println("You have successfully logged in");
 				break;
 			}
-			validCredTry++;
+			invalidCredentlTry++;
 		}
-		if (validCredTry > 2) {
+		if (invalidCredentlTry > 2) {
 			System.out.println("You have reached your max attempt");
-			System.exit(validCredTry);
+			System.exit(invalidCredentlTry);
 		}
 
 		// creating instance of class and invoking the constructor
@@ -71,9 +74,7 @@ public class CruiseCompanyMain {
 					"We offer 4 different packages as displayed below. Please enter the cruise that you want to select."
 							+ "\n" + "Scenic Cruise" + "\n" + "Sunset Cruise" + "\n" + "Discovery Cruise" + "\n"
 							+ "Mystery Cruise");
-			//sc.nextLine();
 			String enteredNameOfcruise = sc.nextLine();
-System.out.println("Entered cruise name is  "+enteredNameOfcruise);
 
 			// iterating over object array to find the selected cruise
 			for (int i = 0; i < cruiceDetails.length; i++) {
@@ -169,7 +170,7 @@ System.out.println("Entered cruise name is  "+enteredNameOfcruise);
 			System.out.println("You have enterd wrong cruise name");
 		}
 
-		// option to change thier credentials
+		// option to change credentials/personal info
 		System.out.println(
 				"Do you want to change your personal information. Press Y to change. Press any other alphabet to exit.");
 		String changePersonalDetails = sc.next();
@@ -182,6 +183,7 @@ System.out.println("Entered cruise name is  "+enteredNameOfcruise);
 			int passwordTry = 0;
 			while (passwordTry < 3) {
 
+				// Validating the password
 				System.out.println("Enter the existing  password");
 				existingPassword = sc.next();
 				if (userDetails.validatePassword(existingPassword)) {
@@ -191,6 +193,7 @@ System.out.println("Entered cruise name is  "+enteredNameOfcruise);
 						System.out.println("Enter the new password");
 						String newPassword = sc.next();
 						userDetails.setPassword(newPassword);
+
 						break;
 
 					case 2:
@@ -221,7 +224,6 @@ System.out.println("Entered cruise name is  "+enteredNameOfcruise);
 				}
 				passwordTry++;
 			}
-
 		}
 		System.out.println("Thank you for using the service!");
 	}

@@ -33,10 +33,11 @@ public class UserDetails {
 
 	}
 
-	//method to set username 
+	// method to set username
 	public void setUserName(String newUserName) {
-		if (this.userName.equals(newUserName)) {
-			System.out.println("Username entered is already exist");
+
+		if (userName.equals(newUserName)) {
+			System.out.println("Username entered is already existing.Try again later");
 		} else {
 			this.userName = newUserName;
 			System.out.println("Username is changed successfully");
@@ -45,8 +46,8 @@ public class UserDetails {
 	}
 
 	public void setPassword(String newPassword) {
-		if (this.password.equals(newPassword)) {
-			System.out.println("Password entered is already exist");
+		if (password.equals(newPassword)) {
+			System.out.println("Password entered is already existing.Try again later");
 		} else {
 			this.password = newPassword;
 			System.out.println("Password is changed successfully");
@@ -56,8 +57,8 @@ public class UserDetails {
 	}
 
 	public void setPhoneNumber(int newPhoneNumber) {
-		if (this.phoneNumber == newPhoneNumber) {
-			System.out.println("Phone number entered is already exist");
+		if (phoneNumber == newPhoneNumber) {
+			System.out.println("Phone number entered is already existing.Try again later");
 		} else {
 			this.phoneNumber = newPhoneNumber;
 			System.out.println("Phone is changed successfully");

@@ -15,8 +15,6 @@ public class CruiseDetails {
 		childPrice = priceForChild;
 	}
 
-	
-
 	double getAdultPriceForCruice(int numofAdult) {
 		double cruicePriceForAdult = (adultPrice * numofAdult * daysOfTrip);
 		return cruicePriceForAdult;
@@ -32,7 +30,7 @@ public class CruiseDetails {
 		double mealPriceForAdult = 0;
 		if (mealBooking.equalsIgnoreCase("Y")) {
 			mealPriceForAdult = adultMealPrice * numofAdult * daysOfTrip;
-		}else {
+		} else {
 			System.out.println("Meal is not selected");
 		}
 		return mealPriceForAdult;
