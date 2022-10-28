@@ -26,7 +26,7 @@ public class UserDetails {
 
 	// to validate the password
 	boolean validatePassword(String existingPassword) {
-		if (this.password.equals(existingPassword)) {
+		if (this.password.equals(existingPassword)) { 
 			return true;
 		}
 		return false;
