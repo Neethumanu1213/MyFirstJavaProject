@@ -15,7 +15,7 @@ public class CruiseCompanyMain {
 		System.out.println("Enter the password that you want to use");
 		String password = sc.nextLine();
 		System.out.println("Enter your Full Name");
-		String fullName = sc.nextLine(); 
+		String fullName = sc.nextLine();
 		System.out.println("Enter your phone number"); 
 		int phoneNumber = sc.nextInt();
 

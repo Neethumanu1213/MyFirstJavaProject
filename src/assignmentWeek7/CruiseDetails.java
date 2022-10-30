@@ -13,7 +13,7 @@ public class CruiseDetails {
 	int numOfAdult;
 	String mealBooking;
 	double hstRate = 15;
-	
+
 	Scanner sc = new Scanner(System.in);
 
 	public CruiseDetails(String nameOfCruise, int noOfDays, double priceForAdult, double priceForChild) {
