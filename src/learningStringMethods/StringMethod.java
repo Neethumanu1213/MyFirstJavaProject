@@ -15,7 +15,7 @@ public class StringMethod {
 
 		System.out.println("Masking the last name :"+neethuFullName.replaceAll("Unnikrishnan" , "************"));
 		
-		//To find the index of last name
+		// To find the index of last name and printing the first name
 		int indexOfLastName=neethuFullName.indexOf("Paikkattumana Unnikrishnan");
 		System.out.println("The first name is :"+neethuFullName.substring(0,indexOfLastName));
 		
