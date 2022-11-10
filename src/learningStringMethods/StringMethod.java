@@ -20,12 +20,23 @@ public class StringMethod {
 		System.out.println("The first name is :"+neethuFullName.substring(0,indexOfLastName));
 		
 		//To replace the character of name
-		System.out.println("New name with a instead of u :"+ neethuFullName.replace("u","a"));
+		System.out.println("New name with a instead of u :"+ neethuFullName.toLowerCase().replace("u","a"));
 		
 		//To find the length of the name
 		System.out.println("Length of the name is:"+neethuFullName.replace(" ","").length());
 		
 
-	}
+		//reversing a name
+		char []reverseNeethuName=neethuFullName.toCharArray();
+		for(int i=neethuFullName.length()-1;i>=0;i--) {
+		System.out.print(reverseNeethuName[i]);
+		}
+		//adding a word in the name
+		neethuFullName=neethuFullName.substring(0, 6)+"@"+neethuFullName.substring(10,20)+"@"+neethuFullName.substring(20+1);
+		System.out.println("\n"+neethuFullName);
+			
+		
+		}
+	
 
 }

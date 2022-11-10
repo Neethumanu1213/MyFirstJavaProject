@@ -23,15 +23,19 @@ public class GameDetails {
 	} 
 
 	public void validatingGuessedCharacter(String inputChar) {
-		int flag = 0;
+		boolean isInputCharContain=false;
 		for (int i = 0; i < studentName.length(); i++) {
 			
 			if (studentName.toUpperCase().charAt(i) == inputChar.toUpperCase().charAt(0)) {
 				maskedName = maskedName.substring(0, i) + studentName.charAt(i) + maskedName.substring(i + 1);
-				flag = 1;
+			isInputCharContain=true;
 			}
 		}
-		if (flag == 0) {
+		if(maskedName.contains(inputChar)) {
+			System.out.println("The letter is already entered");
+			isInputCharContain=true;
+		
+		}else if (!isInputCharContain) {
 			wrongAttempts++;
 			wrongCharacter = wrongCharacter + " " + (inputChar);
 		}

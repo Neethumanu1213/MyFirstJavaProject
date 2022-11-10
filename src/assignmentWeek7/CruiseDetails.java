@@ -105,10 +105,14 @@ public class CruiseDetails {
 				cruiseName + " Adults  @  " + numOfAdult + "               : $" + getAdultPriceForCruise(numOfAdult));
 		System.out.println(cruiseName + "Children above 5 @ " + numOfChildrenAbove5 + "        : $"
 				+ getChildPriceForCruise(numOfChildrenAbove5));
+		if(mealBooking.equals("Y")) {
 		System.out.println(
 				"Buffet Special Price Adults @" + numOfAdult + "           : $" + getPriceForAdultMeal(numOfAdult));
 		System.out.println("Buffet Special Price Children above 5 @ " + numOfChildrenAbove5 + ": $"
 				+ getPriceForChildMeal(numOfChildrenAbove5));
+		}else {
+			System.out.println("Meal is not selected");
+		}
 		System.out.println("Total Price                              : $" + getTotalPrice(numOfAdult));
 		System.out.println("HST	@ " + hstRate + "                           : $" + getHstPrice(numOfAdult));
 		System.out.println("Total                                    : $" + getFinalPrice(numOfAdult));

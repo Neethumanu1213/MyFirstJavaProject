@@ -38,7 +38,7 @@ public class GuessTheSudentGame {
 			GameDetails gameDetails = new GameDetails(studentName, 5);
 
 			// calling the method 
-			gameDetails.gameProcess();
+			gameDetails.gameProcess(); 
 
 			// giving options to start new game
 			System.out.println("Do you want to play again. Press Y to continue or any other letter to come out");
