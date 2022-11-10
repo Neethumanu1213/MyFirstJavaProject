@@ -2,7 +2,7 @@ package assignmentWeek10;
 
 import java.util.Scanner;
 
-public class CruiseBookingDetails extends UserDetails { 
+public class CruiseBookingDetails extends UserDetails {
 
 	private String cruiseName;
 	private int daysOfTrip;
@@ -11,7 +11,7 @@ public class CruiseBookingDetails extends UserDetails {
 	private double adultMealPrice = 20.99;
 	private double childMealPrice = 4.99;
 	private int numOfChildrenAbove5;
-	protected int numOfAdult;
+	public int numOfAdult;
 	private String mealBooking = "";
 	private double hstRate = 15;
 	Scanner sc = new Scanner(System.in);
