@@ -1,10 +1,10 @@
-package assignmentWeek10;
+package week10Assignment;
 
-public class FamilySuites extends HotelBookingDetails {
+public class DeluxSuites extends HotelBookingDetails {
 	private int noOfAdult;
 	private int noOfChild;
 
-	public FamilySuites(String nameOfSuite, double roomRentPerDay) {
+	public DeluxSuites(String nameOfSuite, double roomRentPerDay) {
 		super(nameOfSuite, roomRentPerDay);
 	}
 
@@ -21,7 +21,7 @@ public class FamilySuites extends HotelBookingDetails {
 				continue;
 			}
 			isValidPeopleNum = true;
-			if (noOfAdult > 4 || noOfChild > 4) {
+			if (noOfAdult > 2 || noOfChild > 2) {
 				System.out.println(
 						"The room is not suitable for the number of guests please select again or select separate rooms one at a time.");
 				isValidPeopleNum = false;

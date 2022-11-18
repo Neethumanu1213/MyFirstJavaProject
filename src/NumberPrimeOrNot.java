@@ -8,7 +8,7 @@ public class NumberPrimeOrNot {
 		int number = 13;
 		boolean isPrimeNumber = false;  
 		if ((number == 0) || (number == 1)) {
-			System.out.println("0 and 1 are neither prime nor composite");
+			System.out.println("0 and 1 are neither prime not composite");
 		} else {
 			for (int divisor = 2; divisor <= number / 2; divisor++) {
 				if (number % divisor == 0) {

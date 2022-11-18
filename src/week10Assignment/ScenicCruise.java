@@ -1,4 +1,4 @@
-package assignmentWeek10;
+package week10Assignment;
 
 public class ScenicCruise extends CruiseBookingDetails {
 
