@@ -33,7 +33,7 @@ public class Simulation {
 				r1.carry(itemList.get(i));
 			} else {
 				R1 tempRocket = new R1(100, 10, 18);
-				tempRocket.cargoCarried = r1.cargoCarried;
+				tempRocket.cargoCarried = r1.cargoCarried; 
 				this.r1Rockets.add(tempRocket);
 				r1.cargoCarried = 0;
 				i--;

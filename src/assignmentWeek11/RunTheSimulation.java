@@ -12,6 +12,6 @@ public class RunTheSimulation {
 		simulation.loadItems();
 		simulation.loadR1(r1);
 		simulation.loadR2(r2);
-		simulation.runSimulation(r1, r2);
+		simulation.runSimulation(r1, r2); 
 	}
 }
